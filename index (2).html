@@ -283,7 +283,6 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
       <a href="https://github.com/JAYED-11" aria-label="GitHub"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/taohidul-islam-1a4a581b7/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       <a href="https://www.instagram.com/jayed__11__/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="mdtaohidulislam4@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
     </div>
   </div>
 
@@ -500,7 +499,7 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
         <div class="contact-details">
           <div class="contact-item">
             <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <div><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b1dcd5c5d0ded9d8d5c4ddd8c2ddd0dc85f1d6dcd0d8dd9fd2dedc">[email&#160;protected]</a></span></div>
+            <div><strong>Email</strong><span><a href="mailto:mdtaohidulislam4@gmail.com" style="color:inherit">mdtaohidulislam4@gmail.com</a></span></div>
           </div>
           <div class="contact-item">
             <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -567,7 +566,7 @@ a{text-decoration:none;color:inherit}ul{list-style:none}
 
 <a href="#hero" class="back-top" id="backTop" aria-label="top"><i class="fas fa-chevron-up"></i></a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 /* CANVAS */
 (function(){
   const cv=document.getElementById('heroCanvas'),cx=cv.getContext('2d');
@@ -679,32 +678,33 @@ form.addEventListener('submit',e=>{
 });
 
 /* PHOTO URL */
-const photoEditBtn=document.getElementById('photoEditBtn'),
-      photoUrlPanel=document.getElementById('photoUrlPanel'),
-      photoApplyBtn=document.getElementById('photoApplyBtn'),
-      photoCancelBtn=document.getElementById('photoCancelBtn'),
-      photoUrlInput=document.getElementById('photoUrlInput'),
-      photoUrlError=document.getElementById('photoUrlError'),
-      profilePhoto=document.getElementById('profilePhoto'),
-      photoPlaceholder=document.getElementById('photoPlaceholder');
-
-photoEditBtn.addEventListener('click',()=>{
-  photoUrlPanel.classList.toggle('open');
-  if(photoUrlPanel.classList.contains('open'))photoUrlInput.focus();
-});
-photoCancelBtn.addEventListener('click',()=>{photoUrlPanel.classList.remove('open');photoUrlError.textContent='';});
-photoApplyBtn.addEventListener('click',()=>{
-  const url=photoUrlInput.value.trim();
-  if(!url){photoUrlError.textContent='Please enter a URL.';return;}
-  const t=new Image();
-  t.onload=()=>{profilePhoto.src=url;photoPlaceholder.classList.add('has-photo');photoUrlPanel.classList.remove('open');photoUrlError.textContent='';photoEditBtn.innerHTML='<i class="fas fa-pencil-alt"></i>';};
-  t.onerror=()=>{photoUrlError.textContent='Could not load. Check the URL.';};
-  t.src=url;
-});
-photoUrlInput.addEventListener('keydown',e=>{
-  if(e.key==='Enter')photoApplyBtn.click();
-  if(e.key==='Escape'){photoUrlPanel.classList.remove('open');photoUrlError.textContent='';}
-});
+const photoEditBtn=document.getElementById('photoEditBtn');
+if(photoEditBtn){
+  const photoUrlPanel=document.getElementById('photoUrlPanel'),
+        photoApplyBtn=document.getElementById('photoApplyBtn'),
+        photoCancelBtn=document.getElementById('photoCancelBtn'),
+        photoUrlInput=document.getElementById('photoUrlInput'),
+        photoUrlError=document.getElementById('photoUrlError'),
+        profilePhoto=document.getElementById('profilePhoto'),
+        photoPlaceholder=document.getElementById('photoPlaceholder');
+  photoEditBtn.addEventListener('click',()=>{
+    photoUrlPanel.classList.toggle('open');
+    if(photoUrlPanel.classList.contains('open'))photoUrlInput.focus();
+  });
+  photoCancelBtn.addEventListener('click',()=>{photoUrlPanel.classList.remove('open');photoUrlError.textContent='';});
+  photoApplyBtn.addEventListener('click',()=>{
+    const url=photoUrlInput.value.trim();
+    if(!url){photoUrlError.textContent='Please enter a URL.';return;}
+    const t=new Image();
+    t.onload=()=>{profilePhoto.src=url;photoPlaceholder.classList.add('has-photo');photoUrlPanel.classList.remove('open');photoUrlError.textContent='';photoEditBtn.innerHTML='<i class="fas fa-pencil-alt"></i>';};
+    t.onerror=()=>{photoUrlError.textContent='Could not load. Check the URL.';};
+    t.src=url;
+  });
+  photoUrlInput.addEventListener('keydown',e=>{
+    if(e.key==='Enter')photoApplyBtn.click();
+    if(e.key==='Escape'){photoUrlPanel.classList.remove('open');photoUrlError.textContent='';}
+  });
+}
 </script>
 </body>
 </html>
